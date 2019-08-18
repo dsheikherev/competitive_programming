@@ -1,5 +1,7 @@
 # Competitive_programming
-Competitive Programming course (https://stepik.org/course/53634)
+Competitive Programming course
+(https://stepik.org/course/53634)
+(https://www.coursera.org/learn/sportivnoe-programmirovanie/)
 
 ## Combinatorics
 
@@ -7,3 +9,7 @@ Competitive Programming course (https://stepik.org/course/53634)
 #### brackets_one_type.cpp
 #### brackets_two_types.cpp
 #### salesman.cpp
+
+## Greedy Algorythms
+
+#### schedule.cpp

@@ -13,3 +13,4 @@ Competitive Programming course
 ## Greedy Algorythms
 
 #### schedule.cpp
+#### auditorium.cpp

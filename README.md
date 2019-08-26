@@ -5,6 +5,9 @@ Competitive Programming course
 
 ## Combinatorics
 
+#### n_lexicographic_permutations.cpp
+#### n_m_lexicographic_order.cpp
+#### sum_of_addends.cpp
 #### place_tokens.cpp
 #### brackets_one_type.cpp
 #### brackets_two_types.cpp

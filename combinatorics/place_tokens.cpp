@@ -26,16 +26,16 @@
 
 using namespace std;
 
-int n = 7;
-int m = 3;
+int n = 25;
+int m = 8;
 int line_number = 1;
 
 vector<char> a;
 
 void print_variant() {
-    cout << line_number << ":";
+    cout << line_number << ": ";
     for (int i = 0; i < n; i++) {
-        if (a[i])
+        if (i)
             cout << " ";
         cout << a[i];
     }

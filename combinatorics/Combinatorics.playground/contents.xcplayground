@@ -3,5 +3,6 @@
     <pages>
         <page name='n_lexicographic_permutations'/>
         <page name='m_n_lexicographic_order'/>
+        <page name='sum_of_addends'/>
     </pages>
 </playground>

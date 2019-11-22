@@ -32,9 +32,11 @@ let NUMBER = 5
 
 var a = [Int](repeating: 0, count: NUMBER)
 var sum: Int = 0
+var lineNumber: Int = 1
 
 func print(until: Int) {
-    print(a.prefix(until))
+    print("\(lineNumber): \(a.prefix(until))")
+    lineNumber += 1
 }
 
 func rec(next id: Int, startFrom: Int, sum: Int) {

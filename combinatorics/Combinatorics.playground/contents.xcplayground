@@ -6,5 +6,6 @@
         <page name='sum_of_addends'/>
         <page name='place_tokens'/>
         <page name='brackets_one_type'/>
+        <page name='salesman'/>
     </pages>
 </playground>

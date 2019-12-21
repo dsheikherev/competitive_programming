@@ -7,5 +7,6 @@
         <page name='place_tokens'/>
         <page name='brackets_one_type'/>
         <page name='salesman'/>
+        <page name='brackets_two_types'/>
     </pages>
 </playground>

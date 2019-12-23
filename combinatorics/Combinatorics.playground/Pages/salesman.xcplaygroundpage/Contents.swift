@@ -26,17 +26,52 @@
 import Foundation
 import UIKit
 
-var a = [[Int]]()
+var a = [[Int]] ()
+var N = Int ()
 
-let N: Int = 4
-var line0 = [0, 1, 4, 6]
-var line1 = [1, 0, 5, 2]
-var line2 = [4, 5, 0, 3]
-var line3 = [6, 2, 3, 0]
-a.append(line0)
-a.append(line1)
-a.append(line2)
-a.append(line3)
+guard let path = Bundle.main.path(forResource: "salesman", ofType: "txt") else {
+    fatalError("Can not get salesman.txt")
+}
+
+do {
+    let contents = try String(contentsOfFile: path)
+    let strArray = contents.components(separatedBy: .whitespacesAndNewlines)
+    var readFirstN = false
+    var temp = [Int] ()
+    var i = 0
+
+    for el in strArray {
+        if !readFirstN {
+            N = Int(el) ?? 0
+            readFirstN = true
+            continue
+        }
+        
+        let t = Int(el) ?? 0
+        temp.append(t)
+        i = i + 1
+        
+        if i == N {
+            a.append(temp)
+            temp.removeAll()
+            i = 0
+        }
+    }
+} catch _ {
+    fatalError("Can not read contents of salesman.txt")
+}
+
+//var a = [[Int]]()
+//
+//let N: Int = 4
+//var line0 = [0, 1, 4, 6]
+//var line1 = [1, 0, 5, 2]
+//var line2 = [4, 5, 0, 3]
+//var line3 = [6, 2, 3, 0]
+//a.append(line0)
+//a.append(line1)
+//a.append(line2)
+//a.append(line3)
 
 //let N = 10
 //var line0 = [0, 41, 67, 0, 78, 5, 91, 4, 18, 67]
@@ -92,6 +127,7 @@ func rec(idx: Int, currentCity: Int, sum: Int) {
 }
 
 rec(idx: 1, currentCity: 0, sum: 0)
+
 print("Smallest value | Path")
 print("---------------------")
 print("\(MIN) | \(minPath)")

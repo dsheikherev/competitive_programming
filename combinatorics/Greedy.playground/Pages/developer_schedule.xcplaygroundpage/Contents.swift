@@ -33,7 +33,7 @@ var N = Int ()
 var d = [Int] ()
 var c = [Int] ()
 
-guard let path = Bundle.main.path(forResource: "schedule", ofType: "txt") else { fatalError("Can't get schedule.txt")
+guard let path = Bundle.main.path(forResource: "schedule2", ofType: "txt") else { fatalError("Can't get schedule.txt")
 }
 
 do {
@@ -65,7 +65,9 @@ do {
     fatalError("Can't get contents of schedule.txt")
 }
 
-func sort(deadline: [Int], cost: [Int]) -> (d: [Int], c: [Int]) {
+/* Selection_Sort */
+
+func selectionSort(deadline: [Int], cost: [Int]) -> (d: [Int], c: [Int]) {
     var d = deadline
     var c = cost
     
@@ -88,6 +90,61 @@ func sort(deadline: [Int], cost: [Int]) -> (d: [Int], c: [Int]) {
     return(d, c)
 }
 
+/* -------------- */
+
+/* Merge_____Sort */
+
+func mergeSort(_ c: [Int], ascendingOrder: Bool) -> [Int] {
+    guard c.count > 1 else { return c}
+    let middleIndex = c.count / 2
+    let leftHalf = mergeSort(Array(c[0 ..< middleIndex]), ascendingOrder: ascendingOrder)
+    let rightHalf = mergeSort(Array(c[middleIndex ..< c.count]), ascendingOrder: ascendingOrder)
+    return merge(lHalf: leftHalf, rHalf: rightHalf, ascending: ascendingOrder)
+}
+
+func merge(lHalf: [Int], rHalf: [Int], ascending: Bool) -> [Int] {
+    var leftIndex = 0
+    var rightIndex = 0
+    var sorted = [Int] ()
+    
+    if sorted.capacity < lHalf.count + rHalf.count {
+        sorted.reserveCapacity(lHalf.count + rHalf.count)
+    }
+    
+    while true {
+        guard leftIndex < lHalf.endIndex else {
+            sorted.append(contentsOf: rHalf[rightIndex ..< rHalf.endIndex])
+            break
+        }
+        guard rightIndex < rHalf.endIndex else {
+            sorted.append(contentsOf: lHalf[leftIndex ..< lHalf.endIndex])
+            break
+        }
+        
+        if ascending {
+            if lHalf[leftIndex] < rHalf[rightIndex] {
+                sorted.append(lHalf[leftIndex])
+                leftIndex += 1
+            } else {
+                sorted.append(rHalf[rightIndex])
+                rightIndex += 1
+            }
+        } else {
+            if lHalf[leftIndex] > rHalf[rightIndex] {
+                sorted.append(lHalf[leftIndex])
+                leftIndex += 1
+            } else {
+                sorted.append(rHalf[rightIndex])
+                rightIndex += 1
+            }
+        }
+    }
+    
+    return sorted
+}
+
+/* -------------- */
+
 func countMaxSalary(deadlines: [Int], costs: [Int]) -> UInt64 {
     var sum: UInt64 = 0
     var used = [Bool](repeating: false, count: N + 1)
@@ -106,8 +163,10 @@ func countMaxSalary(deadlines: [Int], costs: [Int]) -> UInt64 {
     return sum
 }
 
-let sorted = sort(deadline: d, cost: c)
-let maxSum = countMaxSalary(deadlines: sorted.d, costs: sorted.c)
+//let sortedArray = mergeSort(c, ascendingOrder: false)
+
+let sortedArray = selectionSort(deadline: d, cost: c)
+let maxSum = countMaxSalary(deadlines: sortedArray.d, costs: sortedArray.c)
 
 print("The maximum salary is \(maxSum)")
 

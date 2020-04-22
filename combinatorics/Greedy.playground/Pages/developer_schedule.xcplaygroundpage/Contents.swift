@@ -33,7 +33,9 @@ var N = Int ()
 var d = [Int] ()
 var c = [Int] ()
 
-guard let path = Bundle.main.path(forResource: "schedule2", ofType: "txt") else { fatalError("Can't get schedule.txt")
+let fileName = "schedule2"
+
+guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else { fatalError("Can't get \(fileName).txt")
 }
 
 do {
@@ -62,7 +64,7 @@ do {
         i += 1
     }
 } catch _ {
-    fatalError("Can't get contents of schedule.txt")
+    fatalError("Can't get contents of \(fileName).txt")
 }
 
 /* Selection_Sort */

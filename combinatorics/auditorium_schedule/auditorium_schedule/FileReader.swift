@@ -9,8 +9,7 @@
 import Foundation
 
 struct FileReader {
-    var right: [Int] = []
-    var left: [Int] = []
+    var requests = [Request]()
 
     mutating func read(_ filename: String) {
         let url = URL(fileURLWithPath: filename)
@@ -25,8 +24,7 @@ struct FileReader {
                     print("Could not convert line to Int values, \(pair)")
                     continue
                 }
-                left.append(first)
-                right.append(last)
+                requests.append(Request(left: first, right: last))
             }
         }
     }

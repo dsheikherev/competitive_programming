@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0B1C4E24507CE800B1CFB0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B1C4D24507CE800B1CFB0 /* Request.swift */; };
 		EFCC800A240418F60030DEAF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8009240418F60030DEAF /* main.swift */; };
 		EFCC80192404221D0030DEAF /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC80182404221D0030DEAF /* FileReader.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF0B1C4D24507CE800B1CFB0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EFCC8006240418F60030DEAF /* auditorium_schedule */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = auditorium_schedule; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCC8009240418F60030DEAF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		EFCC80182404221D0030DEAF /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				EFCC8009240418F60030DEAF /* main.swift */,
 				EFCC80182404221D0030DEAF /* FileReader.swift */,
+				EF0B1C4D24507CE800B1CFB0 /* Request.swift */,
 			);
 			path = auditorium_schedule;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCC800A240418F60030DEAF /* main.swift in Sources */,
+				EF0B1C4E24507CE800B1CFB0 /* Request.swift in Sources */,
 				EFCC80192404221D0030DEAF /* FileReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

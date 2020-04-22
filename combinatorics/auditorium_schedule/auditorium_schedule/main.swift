@@ -19,27 +19,11 @@
 
 import Foundation
 
-func sort(left: inout [Int], right: inout [Int]) {
-    for i in 0..<right.count {
-        for j in stride(from: i, to: 0, by: -1) {
-            if right[j] < right[j-1] {
-                var temp = right[j-1]
-                right[j-1] = right[j]
-                right[j] = temp
-                
-                temp = left[j-1]
-                left[j-1] = left[j]
-                left[j] = temp
-            } else { break }
-        }
-    }
-}
-
-func countMaxLessonsInAuditorium() -> Int{
+func countMaxSatisfied(requests: [Request]) -> Int {
     var count = 1
     var last = 0
-    for i in 1..<right.count {
-        if left[i] >= right[last] {
+    for i in 1 ..< requests.count {
+        if requests[i].left >= requests[last].right {
             count += 1
             last = i
         }
@@ -47,18 +31,17 @@ func countMaxLessonsInAuditorium() -> Int{
     return count
 }
 
-var left = [Int]()
-var right = [Int]()
-
 let fileName = "/Users/dsheikherev/Work/Lessons/competitive_programming/combinatorics/auditorium_schedule/request2.txt"
 
 var reader = FileReader()
 reader.read(fileName)
 
-left = reader.left
-right = reader.right
+var requests = reader.requests
 
-sort(left: &left, right: &right)
-var maxLessons = countMaxLessonsInAuditorium()
+requests.sort {
+    $0.right < $1.right
+}
+
+var maxLessons = countMaxSatisfied(requests: requests)
 
 print("Max nonoverlapping lessons = \(maxLessons)")
